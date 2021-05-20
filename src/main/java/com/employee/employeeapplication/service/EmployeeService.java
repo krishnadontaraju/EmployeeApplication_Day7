@@ -10,33 +10,36 @@ import com.employee.employeeapplication.model.EmployeePayRollData;
 
 @Service
 public class EmployeeService  implements IEmployeeService{
+	
+	private List<EmployeePayRollData> employeePayRollDataList =  new ArrayList<>();
 
 	@Override
 	public List<EmployeePayRollData> getEmployeePayRollData() {
-		List<EmployeePayRollData> employeeDataList = new ArrayList<>();
-		employeeDataList.add(new EmployeePayRollData(1, new EmployeePayRollDTO("Galfauger", 40000)));
 		
-		return employeeDataList;
+		return employeePayRollDataList;
 	}
 
 	@Override
 	public EmployeePayRollData getEmployeePayRollDataById(int employeeId) {
-		EmployeePayRollData employeePayRollData = null;
-		employeePayRollData = new EmployeePayRollData(1, new EmployeePayRollDTO("Galfauger", 40000));
-		return employeePayRollData;
+		return employeePayRollDataList.get(employeeId - 1);
 	}
 
 	@Override
 	public EmployeePayRollData createEmployeePayRollData(EmployeePayRollDTO employeePayRollDTO) {
 		EmployeePayRollData employeePayRollData = null;
-		employeePayRollData = new EmployeePayRollData(1, employeePayRollDTO);
+		employeePayRollData = new EmployeePayRollData(employeePayRollDataList.size() + 1 , employeePayRollDTO);
+		employeePayRollDataList.add(employeePayRollData);
 		return employeePayRollData;
 	}
 
 	@Override
-	public EmployeePayRollData updateEmployeePayRollData(EmployeePayRollDTO employeePayRollDTO) {
-		EmployeePayRollData employeePayRollData = null;
-		employeePayRollData = new EmployeePayRollData(1, employeePayRollDTO);
+	public EmployeePayRollData updateEmployeePayRollData(int employeeId, EmployeePayRollDTO employeePayRollDTO) {
+		EmployeePayRollData employeePayRollData = this.getEmployeePayRollDataById(employeeId);
+		employeePayRollData.setName(employeePayRollDTO.name);
+		employeePayRollData.setSalary(employeePayRollDTO.salary);
+		
+		employeePayRollDataList.set(employeeId - 1 , employeePayRollData);
+
 		return employeePayRollData;
 	}
 
