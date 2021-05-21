@@ -2,6 +2,8 @@ package com.employee.employeeapplication.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +45,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ResponseDTO> addEmployeePayRollData(@RequestBody EmployeePayRollDTO employeePayRollDTO){
+    public ResponseEntity<ResponseDTO> addEmployeePayRollData(@Valid @RequestBody EmployeePayRollDTO employeePayRollDTO){
     	EmployeePayRollData employeeData = null;
     	employeeData = employeePayRollService.createEmployeePayRollData(employeePayRollDTO);
     	employeeData = new EmployeePayRollData(1, employeePayRollDTO);
@@ -52,7 +54,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/update/{empId}")
-    public ResponseEntity<ResponseDTO> updateEmployeePayRollData(@PathVariable("empId") int empId , @RequestBody EmployeePayRollDTO employeePayRollDTO){
+    public ResponseEntity<ResponseDTO> updateEmployeePayRollData(@PathVariable("empId") int empId ,@Valid @RequestBody EmployeePayRollDTO employeePayRollDTO){
     	EmployeePayRollData employeeData = null;
     	employeeData = employeePayRollService.updateEmployeePayRollData(empId, employeePayRollDTO);
     	employeeData = new EmployeePayRollData(1, employeePayRollDTO);
