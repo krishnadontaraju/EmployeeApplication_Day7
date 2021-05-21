@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.employee.employeeapplication.dto.EmployeePayRollDTO;
+import com.employee.employeeapplication.exception.EmployeeServiceException;
 import com.employee.employeeapplication.model.EmployeePayRollData;
 
 @Service
@@ -21,7 +22,10 @@ public class EmployeeService  implements IEmployeeService{
 
 	@Override
 	public EmployeePayRollData getEmployeePayRollDataById(int employeeId) {
-		return employeePayRollDataList.get(employeeId - 1);
+		return employeePayRollDataList.stream()
+										.filter(employee -> employee.getEmployeeId() == employeeId)
+										.findFirst()
+										.orElseThrow(() -> new EmployeeServiceException("Employe with your ID not found"));
 	}
 
 	@Override
