@@ -30,7 +30,7 @@ public @ToString class EmployeePayRollDTO {
 	@NotBlank(message = "Employee must have a picture")
 	public String picture;
 
-	@NotBlank(message = "Departments should be mentioned")
+	@NotNull(message = "Departments should be mentioned")
 	public List<String> departments;
 	
 	

@@ -15,12 +15,23 @@ public @Data class EmployeePayRollData {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "employee_id")
 	private int employeeId;
+
 	@Column(name="name")
 	private String name;
+
+	@Column(name = "salary")
 	private long salary;
+
+	@Column(name = "gender")
 	private String gender;
+
+	@Column(name = "start_date")
 	private LocalDate startDate;
+
+	@Column(name = "note")
 	private String note;
+
+	@Column(name = "picture")
 	private String picture;
 
 	@ElementCollection
@@ -28,8 +39,7 @@ public @Data class EmployeePayRollData {
 	@Column(name = "department")
 	private List<String> departments;
 	
-	public EmployeePayRollData(int employeeId, EmployeePayRollDTO employeePayRollDTO) {
-		this.employeeId = employeeId;
+	public EmployeePayRollData(EmployeePayRollDTO employeePayRollDTO) {
 		this.updateEmployeePayRollData(employeePayRollDTO);
 
 	}
