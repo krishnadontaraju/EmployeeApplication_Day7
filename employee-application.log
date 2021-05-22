@@ -16,3 +16,89 @@
 2021-05-22 12:21:47.219  INFO 8432 --- [restartedMain] c.e.e.EmployeeApplication                : Started EmployeeApplication in 2.483 seconds (JVM running for 3.885)
 2021-05-22 12:21:47.222  INFO 8432 --- [restartedMain] c.e.e.EmployeeApplication                : Employee Payroll App Started in DEV Environment
 2021-05-22 12:21:47.223  INFO 8432 --- [restartedMain] c.e.e.EmployeeApplication                : Employee Payroll App Database User is payrolluser
+2021-05-22 12:25:15.687  INFO 11776 --- [restartedMain] c.e.e.EmployeeApplication                : Starting EmployeeApplication using Java 15.0.3 on DESKTOP-PSPH0JU with PID 11776 (E:\backup 11.05.21\desktop\new\Program_tester\SpringWorkspace\EmployeeApplication\target\classes started by Dell in E:\backup 11.05.21\desktop\new\Program_tester\SpringWorkspace\EmployeeApplication)
+2021-05-22 12:25:15.691 DEBUG 11776 --- [restartedMain] c.e.e.EmployeeApplication                : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-22 12:25:15.692  INFO 11776 --- [restartedMain] c.e.e.EmployeeApplication                : The following profiles are active: dev
+2021-05-22 12:25:18.852  INFO 11776 --- [restartedMain] c.e.e.EmployeeApplication                : Started EmployeeApplication in 3.782 seconds (JVM running for 5.627)
+2021-05-22 12:25:18.858  INFO 11776 --- [restartedMain] c.e.e.EmployeeApplication                : Employee Payroll App Started in DEV Environment
+2021-05-22 12:25:18.861  INFO 11776 --- [restartedMain] c.e.e.EmployeeApplication                : Employee Payroll App Database User is payrolluser
+2021-05-22 12:27:52.949 DEBUG 11776 --- [http-nio-8080-exec-1] c.e.e.controller.EmployeeController      : Employee DTOEmployeePayRollDTO(name=Mark Taylor, salary=500000, gender=male, startDate=2019-10-29, note=All In One, picture=null, departments=null)
+2021-05-22 12:28:07.183 DEBUG 11776 --- [http-nio-8080-exec-3] c.e.e.controller.EmployeeController      : Employee DTOEmployeePayRollDTO(name=Mark Taylor, salary=500000, gender=male, startDate=2019-10-29, note=All In One, picture=null, departments=[HR, Sales])
+2021-05-22 12:29:26.797  WARN 11776 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "29 012 2019": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '29 012 2019' could not be parsed at index 3; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalDate` from String "29 012 2019": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '29 012 2019' could not be parsed at index 3
+ at [Source: (PushbackInputStream); line: 2, column: 65] (through reference chain: com.employee.employeeapplication.dto.EmployeePayRollDTO["startDate"])]
+2021-05-22 12:29:47.126 DEBUG 11776 --- [http-nio-8080-exec-8] c.e.e.controller.EmployeeController      : Employee DTOEmployeePayRollDTO(name=Steve Farell, salary=6000000, gender=male, startDate=2019-11-29, note=All In One, picture=null, departments=[operations, engineering])
+2021-05-22 12:31:37.074 DEBUG 11776 --- [http-nio-8080-exec-1] c.e.e.controller.EmployeeController      : Employee DTOEmployeePayRollDTO(name=Steve Farell, salary=6000000, gender=male, startDate=2019-11-29, note=All In One, picture=Ellipse -3.png, departments=[operations, engineering])
+2021-05-22 20:27:00.608  INFO 5960 --- [restartedMain] c.e.e.EmployeeApplication                : Starting EmployeeApplication using Java 15.0.3 on DESKTOP-PSPH0JU with PID 5960 (E:\backup 11.05.21\desktop\new\Program_tester\SpringWorkspace\EmployeeApplication\target\classes started by Dell in E:\backup 11.05.21\desktop\new\Program_tester\SpringWorkspace\EmployeeApplication)
+2021-05-22 20:27:00.611 DEBUG 5960 --- [restartedMain] c.e.e.EmployeeApplication                : Running with Spring Boot v2.4.5, Spring v5.3.6
+2021-05-22 20:27:00.613  INFO 5960 --- [restartedMain] c.e.e.EmployeeApplication                : The following profiles are active: dev
+2021-05-22 20:27:03.752  INFO 5960 --- [restartedMain] c.e.e.EmployeeApplication                : Started EmployeeApplication in 3.877 seconds (JVM running for 6.151)
+2021-05-22 20:27:03.761  INFO 5960 --- [restartedMain] c.e.e.EmployeeApplication                : Employee Payroll App Started in DEV Environment
+2021-05-22 20:27:03.765  INFO 5960 --- [restartedMain] c.e.e.EmployeeApplication                : Employee Payroll App Database User is payrolluser
+2021-05-22 20:27:43.602 ERROR 5960 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'java.util.List<java.lang.String>'. Check configuration for 'departments'] with root cause
+
+javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'java.util.List<java.lang.String>'. Check configuration for 'departments'
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintTree.getExceptionForNullValidator(ConstraintTree.java:116) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintTree.getInitializedConstraintValidator(ConstraintTree.java:162) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.constraintvalidation.SimpleConstraintTree.validateConstraints(SimpleConstraintTree.java:54) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintTree.validateConstraints(ConstraintTree.java:75) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.metadata.core.MetaConstraint.doValidateConstraint(MetaConstraint.java:130) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.metadata.core.MetaConstraint.validateConstraint(MetaConstraint.java:123) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateMetaConstraint(ValidatorImpl.java:555) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateConstraintsForSingleDefaultGroupElement(ValidatorImpl.java:518) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateConstraintsForDefaultGroup(ValidatorImpl.java:488) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateConstraintsForCurrentGroup(ValidatorImpl.java:450) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validateInContext(ValidatorImpl.java:400) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validate(ValidatorImpl.java:172) ~[hibernate-validator-6.1.7.Final.jar:6.1.7.Final]
+	at org.springframework.validation.beanvalidation.SpringValidatorAdapter.validate(SpringValidatorAdapter.java:117) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.validation.ValidatorAdapter.validate(ValidatorAdapter.java:70) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.validation.DataBinder.validate(DataBinder.java:892) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.validateIfApplicable(AbstractMessageConverterMethodArgumentResolver.java:248) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:137) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:170) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+

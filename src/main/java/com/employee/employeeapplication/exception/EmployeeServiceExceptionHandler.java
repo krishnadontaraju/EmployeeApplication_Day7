@@ -3,6 +3,7 @@ package com.employee.employeeapplication.exception;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
@@ -18,7 +19,7 @@ public class EmployeeServiceExceptionHandler {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ResponseDTO> handleArgumentNotValidExceptionEntity (MethodArgumentNotValidException exception){
 		List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
-		List<String> errorMessage = errorList.stream().map(objectError -> objectError.getDefaultMessage())
+		List<String> errorMessage = errorList.stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
 															.collect(Collectors.toList());
 		
 		ResponseDTO responseDTO = new ResponseDTO("Exception while processing ", errorMessage);
