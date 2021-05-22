@@ -1,15 +1,10 @@
 package com.employee.employeeapplication;
 
-import org.apache.catalina.core.ApplicationContext;
-import org.apache.commons.logging.Log;
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.StaticApplicationContext;
-
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
 
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
@@ -17,11 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 public class EmployeeApplication {
 
     public static void main(String[] args) {
-        org.springframework.context.ApplicationContext context = SpringApplication.run(EmployeeApplication.class, args);
+        ApplicationContext context = SpringApplication.run(EmployeeApplication.class, args);
        
-		log.info("Eploye Payroll App Started in {} Environment" , ((ConfigurableApplicationContext) context).getEnvironment().getProperty("environment"));
+		log.info("Employee Payroll App Started in {} Environment" , context.getEnvironment().getProperty("environment"));
 		
-		log.info("Eploye Payroll App Started in {} Environment" , ((ConfigurableApplicationContext) context).getEnvironment().getProperty("spring.datasource.username"));
+		log.info("Employee Payroll App Database User is {}" , context.getEnvironment().getProperty("spring.datasource.username"));
         
     }
 
