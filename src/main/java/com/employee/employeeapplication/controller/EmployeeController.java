@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ import com.employee.employeeapplication.service.IEmployeeService;
 
 @RestController
 @RequestMapping("/employeeservice")
+@Slf4j
 public class EmployeeController {
 	
 	@Autowired
@@ -33,6 +35,8 @@ public class EmployeeController {
     	List<EmployeePayRollData> employeePayRollDataList = null;
     	employeePayRollDataList = employeePayRollService.getEmployeePayRollData();
     	ResponseDTO responseDTO = new ResponseDTO("Get Call For Id Successful" , employeePayRollDataList);
+    	responseDTO.getName();
+    	responseDTO.getData();
         return new ResponseEntity<ResponseDTO>(responseDTO ,HttpStatus.OK);
     }
 
@@ -46,10 +50,10 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addEmployeePayRollData(@Valid @RequestBody EmployeePayRollDTO employeePayRollDTO){
+        log.debug("Employee DTO"+employeePayRollDTO.toString());
     	EmployeePayRollData employeeData = null;
     	employeeData = employeePayRollService.createEmployeePayRollData(employeePayRollDTO);
-    	employeeData = new EmployeePayRollData(1, employeePayRollDTO);
-    	ResponseDTO responseDTO = new ResponseDTO("Created Employee PayRoll Data Succesfully" , employeeData);
+    	ResponseDTO responseDTO = new ResponseDTO("Created Employee PayRoll Data Successfully" , employeeData);
         return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
     }
 
@@ -57,7 +61,6 @@ public class EmployeeController {
     public ResponseEntity<ResponseDTO> updateEmployeePayRollData(@PathVariable("empId") int empId ,@Valid @RequestBody EmployeePayRollDTO employeePayRollDTO){
     	EmployeePayRollData employeeData = null;
     	employeeData = employeePayRollService.updateEmployeePayRollData(empId, employeePayRollDTO);
-    	employeeData = new EmployeePayRollData(1, employeePayRollDTO);
     	ResponseDTO responseDTO = new ResponseDTO("Updated Employee PayRoll Data Successfully" , employeeData);
         return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
     }

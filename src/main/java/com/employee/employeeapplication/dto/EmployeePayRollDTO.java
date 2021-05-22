@@ -1,9 +1,22 @@
 package com.employee.employeeapplication.dto;
 
-public class EmployeePayRollDTO {
+import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.ToString;
+
+public @ToString class EmployeePayRollDTO {
 
 	public String name;
 	public long salary;
+	public String gender;
+
+	@JsonFormat(pattern = "dd MMM yyyy")
+	public LocalDate startDate;
+	public String note;
+	public String picture;
+	public List<String> departments;
 	
 	
 	public EmployeePayRollDTO(String name, long salary) {
@@ -11,10 +24,4 @@ public class EmployeePayRollDTO {
 		this.salary = salary;
 	}
 
-
-	@Override
-	public String toString() {
-		return "name=" + name + ", salary=" + salary;
-	}
-	
 }
